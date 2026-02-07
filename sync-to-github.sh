@@ -20,13 +20,13 @@ COMMIT_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 git commit -m "Auto-sync at $COMMIT_TIME"
 
 # 检查是否是第一次推送（远程分支不存在）
-if ! git ls-remote --heads origin master &>/dev/null; then
+if ! git ls-remote --heads origin main &>/dev/null; then
     echo "First push: forcing to overwrite remote..."
-    git push -u origin master --force
+    git push -u origin main --force
 else
     # 正常推送
     echo "Pushing changes to remote..."
-    git push origin master
+    git push origin main
 fi
 
 echo "Sync completed at $COMMIT_TIME"
