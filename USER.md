@@ -21,17 +21,21 @@
 - **User ID:** `ou_725f66654653d6c7061d5f99eb8f4df7`
 - **机器人 ID:** `oc_71e0965d0a667df9afb65f9bbcfb4453`
 - **称谓:** wwn
-- **时区:** 待确认
+- **时区:** Asia/Shanghai
 
 ---
 
 ## 🤖 AI 行为规则
 
 ### 识别当前用户
-每次回复时，我会检查 `deliveryContext.from`：
+每次回复时，我会检查会话的 `origin.from` 字段（来自 `sessions.json`）：
 - 如果是 `ou_5c7144a360f68b2db0e434749f5a9945` → 用户是 **tech**
 - 如果是 `ou_725f66654653d6c7061d5f99eb8f4df7` → 用户是 **wwn**
 - 其他 ID → 识别为新用户
+
+### 为什么用 origin.from？
+由于飞书插件的会话共享机制（所有 DM 用户共享 `agent:main:main` 会话），无法通过会话键区分用户。
+但 `sessions.json` 中的 `origin.from` 字段记录了实际发送消息的用户 ID，因此可以用它来动态识别用户。
 
 ### 回复策略
 - **只针对当前用户回复**，避免混淆
