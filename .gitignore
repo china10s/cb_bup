@@ -1,0 +1,35 @@
+# 敏感文件
+.env
+*.env
+.env.*
+*.key
+*.pem
+*.crt
+*secret*
+*token*
+*credential*
+*password*
+
+# 敏感目录
+.secrets/
+.credentials/
+.creds/
+
+# 日志文件（可能包含敏感信息）
+*.log
+logs/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
