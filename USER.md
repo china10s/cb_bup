@@ -1,30 +1,74 @@
-# USER.md - About Your Human
+# USER.md - Multi-User Support
 
-*Learn about the person you're helping. Update this as you go.*
+## 动态用户识别
 
-- **Name:** tech
-- **What to call them:** tech
-- **Pronouns:** *(optional)*
-- **Timezone:** Asia/Shanghai
-- **Notes:**
+**当前会话的 SessionKey:** `agent:main:main`
 
-## Context
-
-*(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)*
-
-### Initial Setup (2026-02-07)
-- **Platform:** 飞书
-- **User ID:** ou_5c7144a360f68b2db0e434749f5a9945
-- **GitHub:** china10s
-- **Projects:**
-  - GitHub Repository: china10s/cb_bup (OpenClaw workspace backup)
-
-### Preferences Observed
-- Uses OpenClaw gateway on Linux VPS
-- Prefers automated solutions (cron jobs, auto-sync)
-- Works with GitHub repositories
-- Interested in productivity automation (reminders, backups)
+由于飞书插件的路由机制，所有用户共享同一个会话文件。我通过 `deliveryContext.from` 来动态识别当前用户。
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+## 📋 已知用户
+
+### tech
+- **User ID:** `ou_5c7144a360f68b2db0e434749f5a9945`
+- **机器人 ID:** `oc_f6d2e6388d34f539dd37a898b6cf00cc`
+- **称谓:** tech
+- **时区:** Asia/Shanghai
+- **GitHub:** china10s
+
+### wwn
+- **User ID:** `ou_725f66654653d6c7061d5f99eb8f4df7`
+- **机器人 ID:** `oc_71e0965d0a667df9afb65f9bbcfb4453`
+- **称谓:** wwn
+- **时区:** 待确认
+
+---
+
+## 🤖 AI 行为规则
+
+### 识别当前用户
+每次回复时，我会检查 `deliveryContext.from`：
+- 如果是 `ou_5c7144a360f68b2db0e434749f5a9945` → 用户是 **tech**
+- 如果是 `ou_725f66654653d6c7061d5f99eb8f4df7` → 用户是 **wwn**
+- 其他 ID → 识别为新用户
+
+### 回复策略
+- **只针对当前用户回复**，避免混淆
+- **不泄露其他用户的上下文**
+- **只引用当前用户的历史记录**
+
+### 隐私保护
+- ❌ 不在回复中泄露其他用户的 ID
+- ❌ 不透露其他用户设置的任务/提醒
+- ✅ 每个用户只能看到自己的信息
+
+---
+
+## 📝 记录规则
+
+### 每日记录
+`memory/YYYY-MM-DD.md` 记录内容：
+- 当前用户的操作
+- 当前用户的偏好
+- 当前用户的任务设置
+- **不记录其他用户的信息**
+
+### 用户特定文件
+如果需要，可以为每个用户创建独立的配置文件：
+- `memory/tech.md` - tech 的偏好
+- `memory/wwn.md` - wwn 的偏好
+
+---
+
+## ⚠️ 重要说明
+
+**会话隔离问题：**
+- 当前：飞书插件路由导致会话共享
+- 影响：用户可能会看到其他用户的上下文
+- **长期解决方案：** 需要飞书插件开发者修复路由机制
+
+**临时应对：**
+- 我在回复时显式识别当前用户
+- 避免跨用户信息泄露
+- 只访问当前用户相关的数据
