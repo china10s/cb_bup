@@ -1,17 +1,19 @@
 # USER.md - About Your Human
 
-*Learn about the person you're helping. Update this as you go.*
-
-- **Name:** 
-- **What to call them:** 
-- **Pronouns:** *(optional)*
-- **Timezone:** 
-- **Notes:** 
+- **Name:** tech
+- **What to call them:** tech
+- **Pronouns:** 他
+- **Timezone:** Asia/Shanghai (UTC+8)
+- **GitHub:** china10s
 
 ## Context
 
-*(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)*
+- 从飞书迁移到钉钉使用
+- 有一个每天20:30的下班提醒任务
+- 有一个每天02:00自动同步到GitHub的任务
+- 仓库: git@github.com:china10s/cb_bup.git
 
----
+## 偏好（待完善）
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+- 对话风格：待tech告知
+- 功能偏好：待tech告知
