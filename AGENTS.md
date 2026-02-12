@@ -11,9 +11,10 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 Before doing anything else:
 
 1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
+2. Read `USER.md` — who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+5. Read `MODEL_ROUTING.md` — model selection rules and shortcuts
 
 Don't ask permission. Just do it.
 
@@ -158,7 +159,7 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 - **Emails** - Any urgent unread messages?
 - **Calendar** - Upcoming events in next 24-48h?
 - **Mentions** - Twitter/social notifications?
-- **Weather** - Relevant if your human might go out?
+- **Weather** - Relevant if your human might go go out?
 
 **Track your checks** in `memory/heartbeat-state.json`:
 
